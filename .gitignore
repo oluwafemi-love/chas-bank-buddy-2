@@ -2,3 +2,7 @@
 tests/test-results/
 tests/playwright-report/
 frontend/.next/
+# Environment variables and secrets
+.env
+.env.*
+!.env.example

@@ -1,12 +1,13 @@
+import "dotenv/config";
 import mysql from "mysql2/promise";
 
-//db connection pool
+// Create a pool of MySQL connections using environment variables.
 const pool = mysql.createPool({
-  user: "root",
-  password: "root",
-  database: "bankbuddy",
-  host: "localhost",
-  port: 3306,
+  host: process.env.DB_HOST || "localhost",
+  port: Number(process.env.DB_PORT || 3306),
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME || "bankbuddy",
 });
 
 //function to make sql querying beautiful to use/write
