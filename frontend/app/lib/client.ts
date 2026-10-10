@@ -1,0 +1,88 @@
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+
+import type {
+  CreateUserRequest,
+  LoginRequest,
+  LoginResponse,
+  AccountResponse,
+  TransactionRequest,
+  TransactionResponse,
+} from "@/app/types/shared";
+
+export async function createUser(request: CreateUserRequest) {
+  console.log("createUser called:", request);
+  console.log("API_URL:", API_URL);
+
+  const res = await fetch(`${API_URL}/users`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+
+  console.log("Response received:", res.status, res.url);
+
+  if (!res.ok) {
+    throw new Error("Failed to create user");
+  }
+
+  return res.json();
+}
+
+export async function loginUser(
+  request: LoginRequest,
+): Promise<LoginResponse> {
+  const res = await fetch(`${API_URL}/sessions`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+
+  if (!res.ok) {
+    throw new Error("Invalid username or password");
+  }
+
+  return res.json();
+}
+
+export async function getAccount(
+  token: string,
+): Promise<AccountResponse> {
+  const res = await fetch(`${API_URL}/me/accounts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      token,
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to get account");
+  }
+
+  return res.json();
+}
+
+export async function depositMoney(
+  request: TransactionRequest,
+): Promise<TransactionResponse> {
+  const res = await fetch(`${API_URL}/me/accounts/transactions`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to deposit money");
+  }
+
+  return res.json();
+}
