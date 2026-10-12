@@ -26,7 +26,7 @@ export default function AccountPage() {
       try {
         const account = await getAccount(token);
 
-        console.log("ACCOUNT RESPONSE:", account);
+        // console.log("ACCOUNT RESPONSE:", account);
 
         setBalance(account.amount);
       } catch (error) {
@@ -57,7 +57,7 @@ export default function AccountPage() {
         amount: depositAmount,
       });
 
-      console.log("TRANSACTION RESPONSE:", response);
+      // console.log("TRANSACTION RESPONSE:", response);
 
       setBalance(response.amount);
       setAmount("");

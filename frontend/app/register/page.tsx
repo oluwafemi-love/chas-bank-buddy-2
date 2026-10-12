@@ -13,13 +13,13 @@ export default function RegisterPage() {
   ) {
     event.preventDefault();
 
-    console.log("REGISTER FORM SUBMITTED");
+    // console.log("REGISTER FORM SUBMITTED");
 
     const finalUsername =
       username.trim() ||
       `${firstName.toLowerCase()}-${lastName.toLowerCase()}`;
 
-    console.log("Username being sent:", finalUsername);
+    // console.log("Username being sent:", finalUsername);
 
     try {
       const user = await createUser({
@@ -27,7 +27,7 @@ export default function RegisterPage() {
         password,
       });
 
-      console.log("User Created: ", user);
+      // console.log("User Created: ", user);
 
       //Clear the UI after submission
       clearUI();

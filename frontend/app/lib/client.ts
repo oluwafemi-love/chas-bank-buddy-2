@@ -11,8 +11,8 @@ import type {
 } from "@/app/types/shared";
 
 export async function createUser(request: CreateUserRequest) {
-  console.log("createUser called:", request);
-  console.log("API_URL:", API_URL);
+  // console.log("createUser called:", request);
+  // console.log("API_URL:", API_URL);
 
   const res = await fetch(`${API_URL}/users`, {
     method: "POST",
@@ -22,7 +22,7 @@ export async function createUser(request: CreateUserRequest) {
     body: JSON.stringify(request),
   });
 
-  console.log("Response received:", res.status, res.url);
+  // console.log("Response received:", res.status, res.url);
 
   if (!res.ok) {
     throw new Error("Failed to create user");

@@ -1,22 +1,23 @@
-### PROJECT DETAILS 
-## Deployed application
+# BankBuddy App
 
-BankBuddy2 stack:
+## Tech Stack
 - Frontend: Next.js
 - Backend: Express
-- DB: MySQL
+- Database: MySQL
+ 
 
-BankBuddy2 is yet to be deployed on AWS EC2:
-
+### AWS
+- Process manager: PM2
 
 
 ## Deployment
 
-~~The frontend and backend are deployed on an AWS EC2 instance.~~
+The frontend and backend are deployed on an AWS EC2 instance.
+
+- https://13-63-79-123.sslip.io
+
+PM2 keeps both the frontend and backend running in the background.
 
 
-~~- Process manager: PM2~~
-~~- Frontend URL: http://~~
-~~- Backend API: http://~~
 
-~~PM2 keeps both the frontend and backend running in the background.~~
+

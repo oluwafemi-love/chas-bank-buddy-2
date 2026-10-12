@@ -28,8 +28,8 @@ export default function LoginPage() {
       //redirect or link to account page
       router.push("/account");
 
-      console.log("Logged in successfully: ", response);
-      console.log("TOKEN: ", response.session.token);
+      // console.log("Logged in successfully: ", response);
+      // console.log("TOKEN: ", response.session.token);
     } catch (error) {
       console.error("Problem encountered with login: ", error);
     }

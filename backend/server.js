@@ -64,8 +64,8 @@ app.post("/users", async (req, res) => {
     const account = await createAccount(user.id);
 
     console.log("✨ User&Account created successfully");
-    console.log("User: ", user);
-    console.log("Account: ", account);
+    // console.log("User: ", user);
+    // console.log("Account: ", account);
 
     //6. Return Result
     return res.status(201).json({
@@ -124,9 +124,9 @@ app.post("/sessions", async (req, res) => {
     const session = await createSession(user.id, token);
 
     console.log("🤝 Login successful, welcome on board!");
-    console.log("User:", user.username);
-    console.log("Token:", token);
-    console.log("Session:", session);
+    // console.log("User:", user.username);
+    // console.log("Token:", token);
+    // console.log("Session:", session);
 
     //Send token back to frontend
     return res.status(200).json({ session });
@@ -163,8 +163,8 @@ app.post("/me/accounts", async (req, res) => {
       }
 
       console.log("✅ Account requested");
-      console.log("USER ID:", account.user_id);
-      console.log("BALANCE:", account.balance);
+      // console.log("USER ID:", account.user_id);
+      // console.log("BALANCE:", account.balance);
 
       return res.status(200).json({
         amount: account.balance,
@@ -228,9 +228,9 @@ app.post("/me/accounts/transactions", async (req, res) => {
     const account = await getAccountByUserId(session.user_id);
 
     console.log("💵 Account topped up successfully");
-    console.log("User ID:", session.user_id);
-    console.log("Deposited:", amount);
-    console.log("New balance:", account.balance);
+    // console.log("User ID:", session.user_id);
+    // console.log("Deposited:", amount);
+    // console.log("New balance:", account.balance);
 
     return res.status(200).json({
       amount: account.balance,
@@ -268,7 +268,7 @@ app.put("/new-password", async (req, res) => {
     await updateUserPassword(username, hashedPassword);
 
     console.log("🔐 Password updated successfully");
-    console.log("Username:", username);
+    // console.log("Username:", username);
 
     return res.status(200).json({
       message: "Password updated successfully.",
@@ -312,7 +312,7 @@ app.delete("/users", async (req, res) => {
     }
 
     console.log("🗑️ User deleted successfully");
-    console.log("Username:", username);
+    // console.log("Username:", username);
 
     return res.status(200).json({
       message: "User deleted successfully.",
